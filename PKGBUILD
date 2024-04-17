@@ -9,6 +9,7 @@ url='https://github.com/archlinux/linux'
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
+  coreutils
   bc
   cpio
   gettext
@@ -76,18 +77,19 @@ prepare() {
 
   echo "Setting config..."
   cp ../config .config
-  make nconfig
-  make prepare
+  # Uncomment to show the UI for manually changing kernel configuration. Save as default and just exit the menu when done, make should continue.
+  #make nconfig -j$(nproc)
+  make prepare -j$(nproc)
   diff -u ../config .config || :
 
-  make -s kernelrelease > version
+  make -j$(nproc) -s kernelrelease > version
   echo "Prepared $pkgbase version $(<version)"
 }
 
 build() {
   cd $_srcname
-  make all -j15
-  make -C tools/bpf/bpftool vmlinux.h feature-clang-bpf-co-re=1 -j15
+  make all -j$(nproc)
+  make -C tools/bpf/bpftool vmlinux.h feature-clang-bpf-co-re=1 -j$(nproc)
 }
 
 _package() {
