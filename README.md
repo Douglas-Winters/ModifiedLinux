@@ -59,6 +59,8 @@ To build the kernel, you will need the following dependancies:
 - python-sphinx
 - python-yaml
 - texlive-latexextra
+- base-devel
+- devtools
 
 To build the package files, run the following command:
 ```
