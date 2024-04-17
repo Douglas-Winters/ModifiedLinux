@@ -2,7 +2,7 @@
 # Modified by Douglas Winters <sirdouglaswinters@gmail.com>
 
 pkgbase=linux-douglas
-pkgver=6.8.4.arch1
+pkgver=6.8.5.arch1
 pkgrel=1
 pkgdesc='Linux Custom Kernel'
 url='https://github.com/archlinux/linux'
