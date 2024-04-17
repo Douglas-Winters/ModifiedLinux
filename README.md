@@ -68,6 +68,8 @@ To install the dependancies automatically, add `-s`:
 ```
 $ makepkg -s
 ```
+**Note that the build process will take anywhere from 15 minutes to over an hour, depending on your CPU speed and capabilities**
+
 ---
 After make has finished, you'll see two new files in the build directory. `linux-douglas-6.8.5.arch1-1-x86_64.pkg.tar.zst` and `linux-douglas-headers-6.8.5.arch1-1-x86_64.pkg.tar.zst`.
 To install the kernel and headers, run the following command as root:
